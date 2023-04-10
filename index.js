@@ -3,6 +3,7 @@ const app = express()
 const port = 3001
 
 const USERS = [];
+const passwords=[] ;
 
 const QUESTIONS = [{
     title: "Two states",
@@ -12,44 +13,68 @@ const QUESTIONS = [{
         output: "5"
     }]
 }];
+// i have edited this
 
-
-const SUBMISSION = [
+const SUBMISSIONS = [
 
 ]
 
 app.post('/signup', function(req, res) {
   // Add logic to decode body
   // body should have email and password
-
+  const email=" " ;
+  const password=" " ;
 
   //Store email and password (as is for now) in the USERS array above (only if the user with the given email doesnt exist)
-
+  
+  if(userExist()==false) {
+    USERS.push(email) ;
+    passwords.push(password) ;
+  }
+  
 
   // return back 200 status code to the client
-  res.send('Hello World!')
+  res.status(200).send('Hello World!')
 })
 
 app.post('/login', function(req, res) {
   // Add logic to decode body
   // body should have email and password
 
+    const email="" ;
+    const password="" ;
+
   // Check if the user with the given email exists in the USERS array
   // Also ensure that the password is the same
 
+  doesExist =new Boolean(false) ;
+  passwordMatched =new Boolean(false) ;
 
   // If the password is the same, return back 200 status code to the client
   // Also send back a token (any random string will do for now)
-  // If the password is not the same, return back 401 status code to the client
 
+  if(doesExist && passwordMatched){
+    res.send(200).send("dd") ;
+  }
+  // If the password is not the same, return back 401 status code to the client
+  
+  else if(doesExist && passwordMatched==false){
+    res.send(401).send("wrong password") ;
+  }
 
   res.send('Hello World from route 2!')
 })
 
 app.get('/questions', function(req, res) {
 
+  let ques="" ;
+
+  for(let q of QUESTIONS){
+    ques+=`<h2>${q.title}</h2>`
+  }
+  
   //return the user all the questions in the QUESTIONS array
-  res.send("Hello World from route 3!")
+  res.send("Hello World from route 3!"+ques)
 })
 
 app.get("/submissions", function(req, res) {
@@ -61,6 +86,11 @@ app.get("/submissions", function(req, res) {
 app.post("/submissions", function(req, res) {
    // let the user submit a problem, randomly accept or reject the solution
    // Store the submission in the SUBMISSION array above
+  const submission=""
+  SUBMISSIONS.push(submission) ;
+  let accepted=false ;
+  if(Math.random()>0.5) accepted=true ;
+  
   res.send("Hello World from route 4!")
 });
 
