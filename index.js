@@ -29,7 +29,16 @@ const QUESTIONS = [{
           input: "[1,2,3,4,5]",
           output: "5"
       }]
-}];
+    },
+    {
+    title: "four states",
+    description: "Given an array , return the maximum of the array?",
+    testCases: [{
+        input: "[1,2,3,4,5]",
+        output: "5"
+    }]
+}
+];
 // i have edited this
 
 const SUBMISSIONS = [
