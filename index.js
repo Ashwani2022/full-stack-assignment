@@ -23,7 +23,7 @@ const QUESTIONS = [{
       }]
     },
     {
-      title: "four states",
+      title: "four states question number 4",
       description: "Given an array , return the maximum of the array?",
       testCases: [{
           input: "[1,2,3,4,5]",
